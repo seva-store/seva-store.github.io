@@ -127,10 +127,10 @@
       min-height: 100vh;
       padding-top: 78px;
       background:
-        linear-gradient(rgba(247, 243, 237, 0.55), rgba(247, 243, 237, 0.55)),
+        linear-gradient(rgba(247, 243, 237, 0.68), rgba(247, 243, 237, 0.68)),
         url("bg.png");
       background-size: cover;
-      background-position: center;
+      background-position: center center;
       background-repeat: no-repeat;
       display: flex;
       align-items: center;
@@ -143,35 +143,28 @@
       padding: 20px;
     }
 
-    .hero-tag {
-      color: var(--green);
-      letter-spacing: 4px;
-      font-size: 0.9rem;
-      font-weight: 700;
-      margin-bottom: 12px;
-      text-transform: uppercase;
-    }
-
-    .hero h1 {
+    .hero-brand {
       font-size: clamp(3rem, 6vw, 5.2rem);
       letter-spacing: 10px;
       line-height: 1;
-      margin-bottom: 14px;
+      margin-bottom: 10px;
       font-weight: 300;
     }
 
-    .hero-subtitle {
-      font-size: clamp(1.15rem, 2vw, 1.55rem);
-      color: #444;
+    .hero-tagline {
+      color: var(--green);
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
       margin-bottom: 14px;
-      font-weight: 500;
     }
 
-    .hero-desc {
-      max-width: 680px;
-      margin: 0 auto 26px;
-      color: #555;
-      font-size: 1.05rem;
+    .hero-subtitle {
+      font-size: clamp(1.15rem, 2vw, 1.5rem);
+      color: #444;
+      margin-bottom: 24px;
+      font-weight: 500;
     }
 
     .hero-actions {
@@ -203,12 +196,6 @@
       background: var(--green-dark);
     }
 
-    .btn-secondary {
-      background: rgba(255, 255, 255, 0.85);
-      color: var(--text);
-      border: 1px solid #ddd;
-    }
-
     .section {
       padding: 72px 0;
     }
@@ -230,34 +217,18 @@
       margin: 0 auto;
     }
 
-    .about-grid,
-    .product-grid,
-    .contact-grid {
+    .product-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 18px;
     }
 
-    .about-card,
     .product-card,
-    .contact-card,
     .coming-soon {
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
-    }
-
-    .about-card,
-    .contact-card {
-      padding: 22px;
-    }
-
-    .about-card h3,
-    .contact-card h3 {
-      color: var(--green);
-      margin-bottom: 8px;
-      font-size: 1.1rem;
     }
 
     .catalog-group {
@@ -368,10 +339,45 @@
     }
 
     .site-footer {
-      padding: 30px 0 45px;
+      margin-top: 60px;
+      padding: 40px 0;
       border-top: 1px solid var(--border);
-      text-align: center;
+      background: var(--bg);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+
+    .footer-brand h3 {
+      font-size: 1.4rem;
+      font-weight: 400;
+      letter-spacing: 5px;
+      margin-bottom: 6px;
+    }
+
+    .footer-brand p {
       color: var(--muted);
+    }
+
+    .footer-links,
+    .footer-contact {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-links a,
+    .footer-contact a {
+      font-weight: 600;
+    }
+
+    .footer-contact a {
+      color: var(--green);
     }
 
     .floating-wa {
@@ -392,9 +398,7 @@
     }
 
     @media (max-width: 900px) {
-      .about-grid,
-      .product-grid,
-      .contact-grid {
+      .product-grid {
         grid-template-columns: 1fr;
       }
 
@@ -408,15 +412,34 @@
 
       .hero {
         min-height: 92vh;
-        background-position: center;
+        background-position: center top;
       }
 
-      .hero h1 {
+      .hero-brand {
         letter-spacing: 6px;
       }
 
       .section {
         padding: 58px 0;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero {
+        background-position: center top;
+        background-size: cover;
+      }
+
+      .hero-content {
+        padding: 18px;
+      }
+
+      .hero-subtitle {
+        font-size: 1.05rem;
       }
     }
   </style>
@@ -437,54 +460,22 @@
 
     <nav class="mobile-menu" id="mobileMenu">
       <a href="#home">Home</a>
-      <a href="#about">About</a>
       <a href="#kids">Kids</a>
       <a href="#women">Women</a>
-      <a href="#contact">Contact</a>
+      <a href="#footer">About</a>
+      <a href="#footer">Contact</a>
     </nav>
   </header>
 
   <main>
     <section class="hero" id="home">
       <div class="hero-content">
-        <p class="hero-tag">Stitches of Love</p>
-        <h1>SEVA</h1>
+        <h1 class="hero-brand">SEVA</h1>
+        <p class="hero-tagline">Stitches of Love</p>
         <p class="hero-subtitle">Ladies & Kids Wear • Customized Stitching Available</p>
-        <p class="hero-desc">
-          Elegant stitched pieces for women and children. Browse the collection
-          and order directly on WhatsApp with custom measurements.
-        </p>
 
         <div class="hero-actions">
           <a class="btn btn-primary" href="#kids">Browse Collection</a>
-          <a class="btn btn-secondary" href="#contact">Contact</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="about">
-      <div class="container">
-        <div class="section-title">
-          <h2>About SEVA</h2>
-          <p>
-            SEVA offers stitched ladies and kids wear with a simple ordering flow.
-            Customers browse the catalog and place orders directly through WhatsApp.
-          </p>
-        </div>
-
-        <div class="about-grid">
-          <div class="about-card">
-            <h3>Stitched Wear</h3>
-            <p>Carefully prepared stitched pieces for women and children in a clean catalog layout.</p>
-          </div>
-          <div class="about-card">
-            <h3>Custom Measurements</h3>
-            <p>Buyers can send measurements, color preferences, and special stitching notes on WhatsApp.</p>
-          </div>
-          <div class="about-card">
-            <h3>Simple Ordering</h3>
-            <p>No checkout complexity. Customers select an item and order directly with one tap.</p>
-          </div>
         </div>
       </div>
     </section>
@@ -646,35 +637,24 @@
         </div>
       </div>
     </section>
-
-    <section class="section" id="contact">
-      <div class="container">
-        <div class="section-title">
-          <h2>Contact & Orders</h2>
-          <p>Customers can order directly through WhatsApp and share all customization details there.</p>
-        </div>
-
-        <div class="contact-grid">
-          <div class="contact-card">
-            <h3>How ordering works</h3>
-            <p>Select an item, tap the WhatsApp button, and the product details are sent automatically.</p>
-          </div>
-          <div class="contact-card">
-            <h3>Custom stitching</h3>
-            <p>Customers can send age, measurements, sleeve preferences, colors, and other requirements.</p>
-          </div>
-          <div class="contact-card">
-            <h3>Business details</h3>
-            <p>Add your official WhatsApp number, Instagram account, and delivery details here.</p>
-          </div>
-        </div>
-      </div>
-    </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container">
-      <p><strong>SEVA</strong> — Stitches of Love</p>
+  <footer class="site-footer" id="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <h3>SEVA</h3>
+        <p>Stitches of Love</p>
+      </div>
+
+      <div class="footer-links">
+        <a href="#kids">Kids</a>
+        <a href="#women">Women</a>
+      </div>
+
+      <div class="footer-contact">
+        <a href="https://wa.me/971501234567" target="_blank">WhatsApp</a>
+        <a href="https://instagram.com/yourpage" target="_blank">Instagram</a>
+      </div>
     </div>
   </footer>
 
