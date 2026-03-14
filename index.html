@@ -6,377 +6,648 @@
   <title>SEVA | Stitches of Love</title>
   <style>
     :root {
-  --bg: #f7f3ed;
-  --surface: #ffffff;
-  --text: #111111;
-  --muted: #666666;
-  --green: #1f7a5a;
-  --green-dark: #14543e;
-  --border: #e8e1d7;
-  --shadow: 0 10px 30px rgba(0,0,0,0.06);
-  --radius: 18px;
-}
-
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
-
-html{
-  scroll-behavior:smooth;
-}
-
-body{
-  font-family:Arial, sans-serif;
-  background:var(--bg);
-  color:var(--text);
-  line-height:1.5;
-}
-
-a{
-  text-decoration:none;
-  color:inherit;
-}
-
-img{
-  max-width:100%;
-  display:block;
-}
-
-.container{
-  width:min(1180px,92%);
-  margin:0 auto;
-}
-
-/* HEADER */
-
-.site-header{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  z-index:1000;
-  background:rgba(247,243,237,0.96);
-  border-bottom:1px solid rgba(0,0,0,0.05);
-  backdrop-filter:blur(10px);
-}
-
-.header-inner{
-  height:78px;
-  display:grid;
-  grid-template-columns:70px 1fr 70px;
-  align-items:center;
-}
-
-.menu-btn{
-  width:42px;
-  height:42px;
-  border:none;
-  background:transparent;
-  cursor:pointer;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  gap:5px;
-  align-items:center;
-}
-
-.menu-btn span{
-  display:block;
-  width:24px;
-  height:2px;
-  background:#333;
-}
-
-.brand-name{
-  text-align:center;
-  font-size:clamp(1.8rem,3vw,3rem);
-  letter-spacing:8px;
-  font-weight:300;
-}
-
-/* MOBILE MENU */
-
-.mobile-menu{
-  position:absolute;
-  top:79px;
-  left:0;
-  width:100%;
-  background:#fff;
-  border-bottom:1px solid var(--border);
-  display:none;
-  flex-direction:column;
-  padding:14px 20px;
-}
-
-.mobile-menu.open{
-  display:flex;
-}
-
-.mobile-menu a{
-  padding:12px 0;
-  border-bottom:1px solid #eee;
-  font-weight:600;
-}
-
-/* HERO */
-
-.hero{
-  min-height:78vh;
-  padding-top:78px;
-
-  background:
-  linear-gradient(rgba(247,243,237,0.65), rgba(247,243,237,0.65)),
-  url("bg.png");
-
-  background-size:cover;
-  background-position:center center;
-  background-repeat:no-repeat;
-
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-}
-
-.hero-content{
-  max-width:720px;
-  padding:20px;
-}
-
-.hero-brand{
-  font-size:clamp(3rem,6vw,5rem);
-  letter-spacing:10px;
-  font-weight:400;
-  margin-bottom:6px;
-}
-
-.hero-tagline{
-  color:var(--green);
-  font-weight:600;
-  margin-bottom:12px;
-}
-
-.hero-subtitle{
-  font-size:1.15rem;
-  color:#555;
-  margin-bottom:24px;
-}
-
-.hero-actions{
-  display:flex;
-  justify-content:center;
-}
-
-.btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  min-height:48px;
-  padding:0 24px;
-  border-radius:12px;
-  border:none;
-  font-weight:700;
-  cursor:pointer;
-}
-
-.btn-primary{
-  background:var(--green);
-  color:white;
-}
-
-.btn-primary:hover{
-  background:var(--green-dark);
-}
-
-/* SECTIONS */
-
-.section{
-  padding:70px 0;
-}
-
-.section-title{
-  text-align:center;
-  margin-bottom:26px;
-}
-
-.section-title h2{
-  font-size:2rem;
-  margin-bottom:6px;
-}
-
-.section-title p{
-  color:var(--muted);
-}
-
-/* PRODUCTS */
-
-.product-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:18px;
-}
-
-.product-card{
-  background:var(--surface);
-  border:1px solid var(--border);
-  border-radius:var(--radius);
-  box-shadow:var(--shadow);
-  overflow:hidden;
-}
-
-.product-image{
-  aspect-ratio:4/5;
-  background:#eee8df;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:#777;
-  font-weight:600;
-}
-
-.product-body{
-  padding:16px;
-}
-
-.product-code{
-  font-size:0.75rem;
-  color:var(--green);
-  font-weight:700;
-  margin-bottom:6px;
-}
-
-.product-body h4{
-  font-size:1rem;
-  margin-bottom:6px;
-}
-
-.product-body p{
-  color:var(--muted);
-  font-size:0.9rem;
-  margin-bottom:8px;
-}
-
-.price{
-  font-weight:700;
-  margin-bottom:12px;
-}
-
-.notes-input{
-  width:100%;
-  border:1px solid #ddd;
-  border-radius:10px;
-  padding:10px;
-  margin-bottom:10px;
-}
-
-.wa-btn{
-  width:100%;
-  background:#25d366;
-  color:white;
-}
-
-.wa-btn:hover{
-  background:#1fb65b;
-}
-
-/* COMING SOON */
-
-.coming-soon{
-  background:var(--surface);
-  border:1px solid var(--border);
-  border-radius:var(--radius);
-  padding:30px;
-  text-align:center;
-}
-
-/* FOOTER */
-
-.site-footer{
-  margin-top:60px;
-  padding:40px 0;
-  border-top:1px solid var(--border);
-  background:var(--bg);
-}
-
-.footer-inner{
-  display:flex;
-  justify-content:space-between;
-  flex-wrap:wrap;
-  gap:20px;
-}
-
-.footer-brand h3{
-  letter-spacing:5px;
-}
-
-.footer-contact a{
-  color:var(--green);
-  font-weight:600;
-  margin-right:15px;
-}
-
-/* FLOATING WHATSAPP */
-
-.floating-wa{
-  position:fixed;
-  right:16px;
-  bottom:16px;
-  width:56px;
-  height:56px;
-  border-radius:50%;
-  background:#25d366;
-  color:white;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:1.6rem;
-  box-shadow:0 10px 25px rgba(0,0,0,0.18);
-}
-
-/* TABLET */
-
-@media (max-width:900px){
-
-  .product-grid{
-    grid-template-columns:1fr;
-  }
-
-  .brand-name{
-    letter-spacing:5px;
-  }
-
-  .hero{
-    min-height:70vh;
-    background-position:center top;
-  }
-
-}
-
-/* MOBILE HERO FIX */
-
-@media (max-width:600px){
-
-  .hero{
-    min-height:66vh;
-    background-size:cover;
-    background-position:center top;
-  }
-
-  .hero-content{
-    padding:18px;
-  }
-
-  .hero-subtitle{
-    font-size:1.05rem;
-  }
-
-  .footer-inner{
-    flex-direction:column;
-  }
-
-}
+      --bg: #f7f3ed;
+      --surface: #ffffff;
+      --text: #111111;
+      --muted: #666666;
+      --green: #1f7a5a;
+      --green-dark: #14543e;
+      --border: #e8e1d7;
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+      --radius: 18px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: min(1180px, 92%);
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(247, 243, 237, 0.96);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      backdrop-filter: blur(10px);
+    }
+
+    .header-inner {
+      height: 78px;
+      display: grid;
+      grid-template-columns: 70px 1fr 70px;
+      align-items: center;
+    }
+
+    .menu-btn {
+      width: 42px;
+      height: 42px;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      align-items: center;
+      justify-self: start;
+    }
+
+    .menu-btn span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: #333;
+    }
+
+    .brand-name {
+      text-align: center;
+      font-size: clamp(1.8rem, 3vw, 3rem);
+      letter-spacing: 8px;
+      font-weight: 300;
+    }
+
+    .mobile-menu {
+      position: absolute;
+      top: 79px;
+      left: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.98);
+      border-bottom: 1px solid var(--border);
+      display: none;
+      flex-direction: column;
+      padding: 14px 20px 18px;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.05);
+    }
+
+    .mobile-menu.open {
+      display: flex;
+    }
+
+    .mobile-menu a {
+      padding: 12px 0;
+      border-bottom: 1px solid #efefef;
+      font-weight: 600;
+    }
+
+    .mobile-menu a:last-child {
+      border-bottom: none;
+    }
+
+    .hero {
+      min-height: 100vh;
+      padding-top: 78px;
+      background:
+        linear-gradient(rgba(247, 243, 237, 0.62), rgba(247, 243, 237, 0.62)),
+        url("hero-desktop.jpg");
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .hero-content {
+      max-width: 760px;
+      padding: 20px;
+    }
+
+    .hero-brand {
+      font-size: clamp(3.2rem, 7vw, 5.5rem);
+      letter-spacing: 10px;
+      line-height: 1;
+      font-weight: 300;
+      margin-bottom: 8px;
+    }
+
+    .hero-tagline {
+      color: var(--green);
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .hero-line {
+      font-size: clamp(1.1rem, 2vw, 1.45rem);
+      color: #333;
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+
+    .hero-line:last-of-type {
+      margin-bottom: 24px;
+    }
+
+    .hero-actions {
+      display: flex;
+      justify-content: center;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 22px;
+      border-radius: 12px;
+      border: none;
+      font-weight: 700;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .btn-primary {
+      background: var(--green);
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      background: var(--green-dark);
+    }
+
+    .section {
+      padding: 72px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 26px;
+    }
+
+    .section-title h2 {
+      font-size: 2rem;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    .section-title p {
+      color: var(--muted);
+      max-width: 740px;
+      margin: 0 auto;
+    }
+
+    .catalog-group {
+      margin-top: 30px;
+    }
+
+    .group-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+
+    .group-header h3 {
+      font-size: 1.3rem;
+      font-weight: 600;
+    }
+
+    .group-header span {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .product-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .product-image {
+      aspect-ratio: 4 / 5;
+      background: #eee8df;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .product-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .product-image.placeholder {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #777;
+      font-weight: 700;
+      text-align: center;
+      padding: 16px;
+    }
+
+    .product-body {
+      padding: 16px;
+    }
+
+    .product-body h4 {
+      font-size: 1.05rem;
+      margin-bottom: 6px;
+      cursor: pointer;
+    }
+
+    .product-body p {
+      color: var(--muted);
+      margin-bottom: 10px;
+      font-size: 0.95rem;
+    }
+
+    .price {
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .wa-btn {
+      width: 100%;
+      background: #25d366;
+      color: white;
+    }
+
+    .wa-btn:hover {
+      background: #1fb65b;
+    }
+
+    .site-footer {
+      margin-top: 50px;
+      padding: 40px 0;
+      border-top: 1px solid var(--border);
+      background: var(--bg);
+    }
+
+    .footer-inner {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 24px;
+    }
+
+    .footer-block h3 {
+      color: var(--green);
+      margin-bottom: 10px;
+      font-size: 1.1rem;
+    }
+
+    .footer-block p,
+    .footer-block a {
+      color: var(--muted);
+      font-size: 0.97rem;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-links a {
+      color: var(--green);
+      font-weight: 600;
+    }
+
+    .floating-wa {
+      position: fixed;
+      right: 16px;
+      bottom: 16px;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: #25d366;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
+      z-index: 1200;
+    }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.45);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      z-index: 2000;
+    }
+
+    .modal.open {
+      display: flex;
+    }
+
+    .modal-content {
+      width: min(1150px, 100%);
+      max-height: 92vh;
+      overflow-y: auto;
+      background: var(--bg);
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+      position: relative;
+      padding: 24px;
+    }
+
+    .close-modal {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 42px;
+      height: 42px;
+      border: none;
+      border-radius: 50%;
+      background: #fff;
+      cursor: pointer;
+      font-size: 1.3rem;
+      box-shadow: var(--shadow);
+    }
+
+    .modal-layout {
+      display: grid;
+      grid-template-columns: 110px 1fr 0.95fr;
+      gap: 22px;
+      align-items: start;
+    }
+
+    .modal-thumbs {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .modal-thumbs img {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      cursor: pointer;
+      background: #eee;
+    }
+
+    .modal-main {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .modal-main img {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      display: block;
+      background: #eee;
+    }
+
+    .modal-info {
+      padding-top: 6px;
+    }
+
+    .modal-category {
+      color: var(--green);
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-size: 0.82rem;
+      margin-bottom: 10px;
+    }
+
+    .modal-title {
+      font-size: clamp(1.7rem, 3vw, 2.4rem);
+      font-weight: 500;
+      margin-bottom: 8px;
+      line-height: 1.15;
+    }
+
+    .modal-code {
+      color: var(--muted);
+      margin-bottom: 16px;
+      font-size: 0.95rem;
+    }
+
+    .modal-price {
+      font-size: 1.9rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .modal-note {
+      color: var(--muted);
+      margin-bottom: 22px;
+    }
+
+    .quantity-wrap {
+      margin-bottom: 18px;
+    }
+
+    .quantity-wrap label,
+    .custom-note label {
+      display: block;
+      font-size: 0.9rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .qty-control {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .qty-control button {
+      width: 46px;
+      height: 46px;
+      border: none;
+      background: #fff;
+      font-size: 1.4rem;
+      cursor: pointer;
+    }
+
+    .qty-control span {
+      width: 54px;
+      text-align: center;
+      font-weight: 700;
+      font-size: 1.05rem;
+    }
+
+    .custom-note textarea {
+      width: 100%;
+      min-height: 100px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 14px;
+      resize: vertical;
+      font-family: inherit;
+      font-size: 0.96rem;
+      background: #fff;
+      outline: none;
+    }
+
+    .custom-note textarea:focus {
+      border-color: var(--green);
+    }
+
+    .modal-wa-btn {
+      width: 100%;
+      min-height: 52px;
+      border: none;
+      border-radius: 14px;
+      background: #25d366;
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 14px;
+    }
+
+    .modal-wa-btn:hover {
+      background: #1fb65b;
+    }
+
+    .modal-box {
+      border-top: 1px solid var(--border);
+      padding-top: 18px;
+      margin-top: 18px;
+    }
+
+    .modal-box h3 {
+      font-size: 0.92rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .modal-box p {
+      color: #444;
+      font-size: 0.97rem;
+    }
+
+    @media (max-width: 980px) {
+      .product-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .modal-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .modal-thumbs {
+        flex-direction: row;
+        order: 2;
+      }
+
+      .modal-thumbs img {
+        width: calc(25% - 9px);
+      }
+
+      .modal-main {
+        order: 1;
+      }
+
+      .modal-info {
+        order: 3;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .header-inner {
+        grid-template-columns: 60px 1fr 60px;
+      }
+
+      .brand-name {
+        letter-spacing: 5px;
+      }
+
+      .hero {
+        min-height: 86vh;
+      }
+
+      .hero-brand {
+        letter-spacing: 6px;
+      }
+
+      .section {
+        padding: 58px 0;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero {
+        min-height: 78vh;
+        background:
+          linear-gradient(rgba(247, 243, 237, 0.68), rgba(247, 243, 237, 0.68)),
+          url("hero-mobile.jpg");
+        background-size: cover;
+        background-position: center top;
+        background-repeat: no-repeat;
+      }
+
+      .hero-content {
+        padding: 18px;
+      }
+
+      .hero-line {
+        font-size: 1.05rem;
+      }
+
+      .modal-content {
+        padding: 18px;
+      }
+
+      .modal-thumbs {
+        gap: 10px;
+      }
+
+      .modal-thumbs img {
+        width: calc(25% - 8px);
+      }
+    }
   </style>
 </head>
 <body>
@@ -397,17 +668,17 @@ img{
       <a href="#home">Home</a>
       <a href="#kids">Kids</a>
       <a href="#women">Women</a>
-      <a href="#footer">About</a>
-      <a href="#footer">Contact</a>
+      <a href="#footer">Contact Us</a>
     </nav>
   </header>
 
   <main>
     <section class="hero" id="home">
       <div class="hero-content">
-        <h1 class="hero-brand">SEVA</h1>
+        <h1 class="hero-brand">Seva</h1>
         <p class="hero-tagline">Stitches of Love</p>
-        <p class="hero-subtitle">Ladies & Kids Wear • Customized Stitching Available</p>
+        <p class="hero-line">Ladies & Kids Wear</p>
+        <p class="hero-line">Customized Stitching Available</p>
 
         <div class="hero-actions">
           <a class="btn btn-primary" href="#kids">Browse Collection</a>
@@ -419,49 +690,49 @@ img{
       <div class="container">
         <div class="section-title">
           <h2>Kids Section</h2>
-          <p>Summer collection is available now. Winter collection is reserved for later.</p>
+          <p>Fancy and casual stitched wear for kids.</p>
         </div>
 
         <div class="catalog-group">
           <div class="group-header">
-            <h3>Summer Collection — Fancy</h3>
-            <span>Kids stitched wear</span>
+            <h3>Fancy</h3>
+            <span>2–3 stitched options</span>
           </div>
 
           <div class="product-grid">
             <article class="product-card">
-              <div class="product-image">Add your product image</div>
+              <div class="product-image" onclick="openProduct('kidsFancy1')">
+                <img src="product1.jpg" alt="Fancy Floral Dress">
+              </div>
               <div class="product-body">
-                <div class="product-code">KF-01</div>
-                <h4>Fancy Floral Dress</h4>
-                <p>Elegant stitched outfit for events and special occasions.</p>
-                <div class="price">AED 95</div>
-                <input class="notes-input" id="kf1" type="text" placeholder="Optional note: age, color, measurements">
-                <button class="btn wa-btn" onclick="orderOnWhatsApp('KF-01 Fancy Floral Dress', 'AED 95', 'kf1')">Order on WhatsApp</button>
+                <h4 onclick="openProduct('kidsFancy1')">Fancy Floral Dress</h4>
+                <p>Elegant stitched outfit for special occasions.</p>
+                <div class="price">PKR 7,500</div>
+                <button class="btn wa-btn" onclick="orderSimple('Fancy Floral Dress', 'PKR 7,500')">Order on WhatsApp</button>
               </div>
             </article>
 
             <article class="product-card">
-              <div class="product-image">Add your product image</div>
+              <div class="product-image" onclick="openProduct('kidsFancy2')">
+                <img src="product2.jpg" alt="Pearl Party Frock">
+              </div>
               <div class="product-body">
-                <div class="product-code">KF-02</div>
-                <h4>Pearl Detail Party Frock</h4>
-                <p>Soft stitched piece with a festive presentation.</p>
-                <div class="price">AED 110</div>
-                <input class="notes-input" id="kf2" type="text" placeholder="Optional note: age, color, measurements">
-                <button class="btn wa-btn" onclick="orderOnWhatsApp('KF-02 Pearl Detail Party Frock', 'AED 110', 'kf2')">Order on WhatsApp</button>
+                <h4 onclick="openProduct('kidsFancy2')">Pearl Party Frock</h4>
+                <p>Soft and graceful stitched piece for events.</p>
+                <div class="price">PKR 8,300</div>
+                <button class="btn wa-btn" onclick="orderSimple('Pearl Party Frock', 'PKR 8,300')">Order on WhatsApp</button>
               </div>
             </article>
 
             <article class="product-card">
-              <div class="product-image">Add your product image</div>
+              <div class="product-image" onclick="openProduct('kidsFancy3')">
+                <img src="product3.jpg" alt="Embroidered Occasion Dress">
+              </div>
               <div class="product-body">
-                <div class="product-code">KF-03</div>
-                <h4>Embroidered Occasion Dress</h4>
-                <p>Graceful stitched design for formal kids wear.</p>
-                <div class="price">AED 120</div>
-                <input class="notes-input" id="kf3" type="text" placeholder="Optional note: age, color, measurements">
-                <button class="btn wa-btn" onclick="orderOnWhatsApp('KF-03 Embroidered Occasion Dress', 'AED 120', 'kf3')">Order on WhatsApp</button>
+                <h4 onclick="openProduct('kidsFancy3')">Embroidered Occasion Dress</h4>
+                <p>Neat stitched design for formal kids wear.</p>
+                <div class="price">PKR 8,900</div>
+                <button class="btn wa-btn" onclick="orderSimple('Embroidered Occasion Dress', 'PKR 8,900')">Order on WhatsApp</button>
               </div>
             </article>
           </div>
@@ -469,58 +740,46 @@ img{
 
         <div class="catalog-group">
           <div class="group-header">
-            <h3>Summer Collection — Casual</h3>
-            <span>Kids daily stitched wear</span>
+            <h3>Casual</h3>
+            <span>2–3 stitched options</span>
           </div>
 
           <div class="product-grid">
             <article class="product-card">
-              <div class="product-image">Add your product image</div>
+              <div class="product-image" onclick="openProduct('kidsCasual1')">
+                <img src="product4.jpg" alt="Printed Casual Set">
+              </div>
               <div class="product-body">
-                <div class="product-code">KC-01</div>
-                <h4>Printed Casual Set</h4>
-                <p>Comfort-focused stitched set for daily summer wear.</p>
-                <div class="price">AED 65</div>
-                <input class="notes-input" id="kc1" type="text" placeholder="Optional note: age, color, measurements">
-                <button class="btn wa-btn" onclick="orderOnWhatsApp('KC-01 Printed Casual Set', 'AED 65', 'kc1')">Order on WhatsApp</button>
+                <h4 onclick="openProduct('kidsCasual1')">Printed Casual Set</h4>
+                <p>Comfort-focused stitched set for daily wear.</p>
+                <div class="price">PKR 4,800</div>
+                <button class="btn wa-btn" onclick="orderSimple('Printed Casual Set', 'PKR 4,800')">Order on WhatsApp</button>
               </div>
             </article>
 
             <article class="product-card">
-              <div class="product-image">Add your product image</div>
+              <div class="product-image placeholder" onclick="openProduct('kidsCasual2')">
+                Add your casual kids image
+              </div>
               <div class="product-body">
-                <div class="product-code">KC-02</div>
-                <h4>Light Cotton Everyday Dress</h4>
-                <p>Simple and breathable stitched piece for regular use.</p>
-                <div class="price">AED 58</div>
-                <input class="notes-input" id="kc2" type="text" placeholder="Optional note: age, color, measurements">
-                <button class="btn wa-btn" onclick="orderOnWhatsApp('KC-02 Light Cotton Everyday Dress', 'AED 58', 'kc2')">Order on WhatsApp</button>
+                <h4 onclick="openProduct('kidsCasual2')">Light Cotton Everyday Dress</h4>
+                <p>Simple stitched piece for regular use.</p>
+                <div class="price">PKR 4,500</div>
+                <button class="btn wa-btn" onclick="orderSimple('Light Cotton Everyday Dress', 'PKR 4,500')">Order on WhatsApp</button>
               </div>
             </article>
 
             <article class="product-card">
-              <div class="product-image">Add your product image</div>
+              <div class="product-image placeholder" onclick="openProduct('kidsCasual3')">
+                Add your casual kids image
+              </div>
               <div class="product-body">
-                <div class="product-code">KC-03</div>
-                <h4>Playtime Summer Outfit</h4>
-                <p>Stitched casual wear for soft and comfortable daytime use.</p>
-                <div class="price">AED 60</div>
-                <input class="notes-input" id="kc3" type="text" placeholder="Optional note: age, color, measurements">
-                <button class="btn wa-btn" onclick="orderOnWhatsApp('KC-03 Playtime Summer Outfit', 'AED 60', 'kc3')">Order on WhatsApp</button>
+                <h4 onclick="openProduct('kidsCasual3')">Playtime Summer Outfit</h4>
+                <p>Soft and breathable stitched casual wear.</p>
+                <div class="price">PKR 4,700</div>
+                <button class="btn wa-btn" onclick="orderSimple('Playtime Summer Outfit', 'PKR 4,700')">Order on WhatsApp</button>
               </div>
             </article>
-          </div>
-        </div>
-
-        <div class="catalog-group">
-          <div class="group-header">
-            <h3>Winter Collection</h3>
-            <span>Reserved section</span>
-          </div>
-
-          <div class="coming-soon">
-            <h3>Coming Soon</h3>
-            <p>The kids winter collection will be added here later.</p>
           </div>
         </div>
       </div>
@@ -530,43 +789,43 @@ img{
       <div class="container">
         <div class="section-title">
           <h2>Women Section</h2>
-          <p>A small stitched collection for women, ready to expand later.</p>
+          <p>Stitched items for women.</p>
         </div>
 
         <div class="product-grid">
           <article class="product-card">
-            <div class="product-image">Add your product image</div>
+            <div class="product-image placeholder" onclick="openProduct('women1')">
+              Add your women image
+            </div>
             <div class="product-body">
-              <div class="product-code">W-01</div>
-              <h4>Elegant Stitched Kurti</h4>
+              <h4 onclick="openProduct('women1')">Elegant Stitched Kurti</h4>
               <p>Refined stitched piece for a graceful everyday look.</p>
-              <div class="price">AED 125</div>
-              <input class="notes-input" id="w1" type="text" placeholder="Optional note: color, measurements, sleeve style">
-              <button class="btn wa-btn" onclick="orderOnWhatsApp('W-01 Elegant Stitched Kurti', 'AED 125', 'w1')">Order on WhatsApp</button>
+              <div class="price">PKR 9,500</div>
+              <button class="btn wa-btn" onclick="orderSimple('Elegant Stitched Kurti', 'PKR 9,500')">Order on WhatsApp</button>
             </div>
           </article>
 
           <article class="product-card">
-            <div class="product-image">Add your product image</div>
+            <div class="product-image placeholder" onclick="openProduct('women2')">
+              Add your women image
+            </div>
             <div class="product-body">
-              <div class="product-code">W-02</div>
-              <h4>Soft Casual Stitched Set</h4>
-              <p>Simple stitched wear suited for comfortable regular use.</p>
-              <div class="price">AED 140</div>
-              <input class="notes-input" id="w2" type="text" placeholder="Optional note: color, measurements, sleeve style">
-              <button class="btn wa-btn" onclick="orderOnWhatsApp('W-02 Soft Casual Stitched Set', 'AED 140', 'w2')">Order on WhatsApp</button>
+              <h4 onclick="openProduct('women2')">Soft Casual Stitched Set</h4>
+              <p>Simple stitched wear suited for regular use.</p>
+              <div class="price">PKR 10,800</div>
+              <button class="btn wa-btn" onclick="orderSimple('Soft Casual Stitched Set', 'PKR 10,800')">Order on WhatsApp</button>
             </div>
           </article>
 
           <article class="product-card">
-            <div class="product-image">Add your product image</div>
+            <div class="product-image placeholder" onclick="openProduct('women3')">
+              Add your women image
+            </div>
             <div class="product-body">
-              <div class="product-code">W-03</div>
-              <h4>Festive Stitched Dress</h4>
+              <h4 onclick="openProduct('women3')">Festive Stitched Dress</h4>
               <p>A polished stitched option for gatherings and occasions.</p>
-              <div class="price">AED 165</div>
-              <input class="notes-input" id="w3" type="text" placeholder="Optional note: color, measurements, sleeve style">
-              <button class="btn wa-btn" onclick="orderOnWhatsApp('W-03 Festive Stitched Dress', 'AED 165', 'w3')">Order on WhatsApp</button>
+              <div class="price">PKR 12,500</div>
+              <button class="btn wa-btn" onclick="orderSimple('Festive Stitched Dress', 'PKR 12,500')">Order on WhatsApp</button>
             </div>
           </article>
         </div>
@@ -576,31 +835,162 @@ img{
 
   <footer class="site-footer" id="footer">
     <div class="container footer-inner">
-      <div class="footer-brand">
-        <h3>SEVA</h3>
-        <p>Stitches of Love</p>
+      <div class="footer-block">
+        <h3>About Us</h3>
+        <p>
+          SEVA creates stitched ladies and kids wear with care, comfort, and attention to detail.
+          Our focus is elegant clothing, customized stitching, and easy ordering through WhatsApp.
+        </p>
       </div>
 
-      <div class="footer-links">
-        <a href="#kids">Kids</a>
-        <a href="#women">Women</a>
-      </div>
-
-      <div class="footer-contact">
-        <a href="https://wa.me/971501234567" target="_blank">WhatsApp</a>
-        <a href="https://instagram.com/yourpage" target="_blank">Instagram</a>
+      <div class="footer-block">
+        <h3>Contact Us</h3>
+        <div class="footer-links">
+          <a href="https://wa.me/923001234567" target="_blank">WhatsApp</a>
+          <a href="https://instagram.com/yourpage" target="_blank">Instagram</a>
+        </div>
       </div>
     </div>
   </footer>
 
   <a class="floating-wa" id="floatingWa" href="#" aria-label="Chat on WhatsApp">✆</a>
 
+  <div class="modal" id="productModal">
+    <div class="modal-content">
+      <button class="close-modal" id="closeModalBtn">&times;</button>
+
+      <div class="modal-layout">
+        <div class="modal-thumbs" id="modalThumbs"></div>
+
+        <div class="modal-main">
+          <img id="modalMainImage" src="" alt="Product image">
+        </div>
+
+        <div class="modal-info">
+          <div class="modal-category" id="modalCategory"></div>
+          <h2 class="modal-title" id="modalTitle"></h2>
+          <div class="modal-code" id="modalCode"></div>
+          <div class="modal-price" id="modalPrice"></div>
+          <div class="modal-note">Customized stitching available. Measurements can be shared on WhatsApp.</div>
+
+          <div class="quantity-wrap">
+            <label>Quantity</label>
+            <div class="qty-control">
+              <button type="button" onclick="changeQty(-1)">−</button>
+              <span id="qtyValue">1</span>
+              <button type="button" onclick="changeQty(1)">+</button>
+            </div>
+          </div>
+
+          <div class="custom-note">
+            <label>Order Notes</label>
+            <textarea id="modalNotes" placeholder="Write color preference, measurements, age, customization details, or any other request."></textarea>
+          </div>
+
+          <button class="modal-wa-btn" onclick="orderFromModal()">Order on WhatsApp</button>
+
+          <div class="modal-box">
+            <h3>Product Details</h3>
+            <p id="modalDescription"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script>
-    const businessNumber = "971501234567";
+    const businessNumber = "923001234567";
+
+    const products = {
+      kidsFancy1: {
+        category: "Kids Fancy",
+        title: "Fancy Floral Dress",
+        code: "KF-01",
+        price: "PKR 7,500",
+        description: "Elegant stitched outfit for special occasions with a graceful finish.",
+        images: ["product1.jpg", "product2.jpg", "product3.jpg", "product4.jpg"]
+      },
+      kidsFancy2: {
+        category: "Kids Fancy",
+        title: "Pearl Party Frock",
+        code: "KF-02",
+        price: "PKR 8,300",
+        description: "Soft stitched piece designed for festive events and formal wear.",
+        images: ["product2.jpg", "product1.jpg", "product3.jpg", "product4.jpg"]
+      },
+      kidsFancy3: {
+        category: "Kids Fancy",
+        title: "Embroidered Occasion Dress",
+        code: "KF-03",
+        price: "PKR 8,900",
+        description: "Neat stitched design for formal kids wear and elegant occasions.",
+        images: ["product3.jpg", "product1.jpg", "product2.jpg", "product4.jpg"]
+      },
+      kidsCasual1: {
+        category: "Kids Casual",
+        title: "Printed Casual Set",
+        code: "KC-01",
+        price: "PKR 4,800",
+        description: "Comfort-focused stitched set for daily wear and a soft casual feel.",
+        images: ["product4.jpg", "product1.jpg", "product2.jpg", "product3.jpg"]
+      },
+      kidsCasual2: {
+        category: "Kids Casual",
+        title: "Light Cotton Everyday Dress",
+        code: "KC-02",
+        price: "PKR 4,500",
+        description: "Simple stitched piece designed for regular use and breathable comfort.",
+        images: ["product1.jpg", "product2.jpg", "product3.jpg", "product4.jpg"]
+      },
+      kidsCasual3: {
+        category: "Kids Casual",
+        title: "Playtime Summer Outfit",
+        code: "KC-03",
+        price: "PKR 4,700",
+        description: "Soft and breathable stitched casual wear for daytime use.",
+        images: ["product2.jpg", "product3.jpg", "product4.jpg", "product1.jpg"]
+      },
+      women1: {
+        category: "Women",
+        title: "Elegant Stitched Kurti",
+        code: "W-01",
+        price: "PKR 9,500",
+        description: "Refined stitched piece for a graceful everyday look.",
+        images: ["product1.jpg", "product2.jpg", "product3.jpg", "product4.jpg"]
+      },
+      women2: {
+        category: "Women",
+        title: "Soft Casual Stitched Set",
+        code: "W-02",
+        price: "PKR 10,800",
+        description: "Simple stitched wear suited for regular use and everyday elegance.",
+        images: ["product2.jpg", "product1.jpg", "product3.jpg", "product4.jpg"]
+      },
+      women3: {
+        category: "Women",
+        title: "Festive Stitched Dress",
+        code: "W-03",
+        price: "PKR 12,500",
+        description: "A polished stitched option for gatherings and special occasions.",
+        images: ["product3.jpg", "product2.jpg", "product1.jpg", "product4.jpg"]
+      }
+    };
+
+    let activeProductKey = null;
 
     const menuBtn = document.getElementById("menuBtn");
     const mobileMenu = document.getElementById("mobileMenu");
     const floatingWa = document.getElementById("floatingWa");
+    const productModal = document.getElementById("productModal");
+    const closeModalBtn = document.getElementById("closeModalBtn");
+    const modalThumbs = document.getElementById("modalThumbs");
+    const modalMainImage = document.getElementById("modalMainImage");
+    const modalCategory = document.getElementById("modalCategory");
+    const modalTitle = document.getElementById("modalTitle");
+    const modalCode = document.getElementById("modalCode");
+    const modalPrice = document.getElementById("modalPrice");
+    const modalDescription = document.getElementById("modalDescription");
+    const qtyValue = document.getElementById("qtyValue");
 
     menuBtn.addEventListener("click", () => {
       mobileMenu.classList.toggle("open");
@@ -612,25 +1002,95 @@ img{
       });
     });
 
+    closeModalBtn.addEventListener("click", closeProductModal);
+
+    productModal.addEventListener("click", (e) => {
+      if (e.target === productModal) {
+        closeProductModal();
+      }
+    });
+
     floatingWa.href =
       "https://wa.me/" +
       businessNumber +
       "?text=" +
       encodeURIComponent("Hello, I want to ask about SEVA.");
 
-    function orderOnWhatsApp(productName, price, inputId) {
-      const input = document.getElementById(inputId);
-      const notes = input ? input.value.trim() : "";
-
+    function orderSimple(productName, price) {
       let message = "Hello, I want to order this item from SEVA:\n\n";
       message += "Product: " + productName + "\n";
       message += "Price: " + price + "\n";
+      message += "\nPlease confirm availability. I will share custom measurements here if needed.";
+
+      const url =
+        "https://wa.me/" +
+        businessNumber +
+        "?text=" +
+        encodeURIComponent(message);
+
+      window.open(url, "_blank");
+    }
+
+    function openProduct(productKey) {
+      const product = products[productKey];
+      if (!product) return;
+
+      activeProductKey = productKey;
+      qtyValue.textContent = "1";
+      document.getElementById("modalNotes").value = "";
+
+      modalCategory.textContent = product.category;
+      modalTitle.textContent = product.title;
+      modalCode.textContent = "Product Code: " + product.code;
+      modalPrice.textContent = product.price;
+      modalDescription.textContent = product.description;
+      modalMainImage.src = product.images[0];
+
+      modalThumbs.innerHTML = "";
+      product.images.forEach((imgSrc) => {
+        const img = document.createElement("img");
+        img.src = imgSrc;
+        img.alt = product.title;
+        img.addEventListener("click", () => {
+          modalMainImage.src = imgSrc;
+        });
+        modalThumbs.appendChild(img);
+      });
+
+      productModal.classList.add("open");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeProductModal() {
+      productModal.classList.remove("open");
+      document.body.style.overflow = "";
+    }
+
+    function changeQty(amount) {
+      let currentQty = parseInt(qtyValue.textContent, 10);
+      currentQty += amount;
+      if (currentQty < 1) currentQty = 1;
+      qtyValue.textContent = currentQty;
+    }
+
+    function orderFromModal() {
+      if (!activeProductKey) return;
+
+      const product = products[activeProductKey];
+      const qty = qtyValue.textContent;
+      const notes = document.getElementById("modalNotes").value.trim();
+
+      let message = "Hello, I want to order this item from SEVA:\n\n";
+      message += "Product: " + product.title + "\n";
+      message += "Code: " + product.code + "\n";
+      message += "Price: " + product.price + "\n";
+      message += "Quantity: " + qty + "\n";
 
       if (notes) {
-        message += "Customer notes: " + notes + "\n";
+        message += "Notes: " + notes + "\n";
       }
 
-      message += "\nPlease confirm availability. I will share custom measurements here if needed.";
+      message += "\nPlease confirm availability.";
 
       const url =
         "https://wa.me/" +
