@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SEVA | Stitches of Love</title>
+  <style>
+    :root {
+      --green: #1f7a5a;
+      --green-dark: #14543e;
+      --cream: #faf8f4;
+      --text: #111827;
+      --muted: #6b7280;
+      --line: #e5e7eb;
+      --card: #ffffff;
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      --radius: 18px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: min(1120px, 92%);
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(250, 248, 244, 0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      min-height: 72px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-logo {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .brand-text h1 {
+      font-size: 1.2rem;
+      letter-spacing: 1px;
+      color: var(--green);
+      line-height: 1;
+    }
+
+    .brand-text span {
+      display: block;
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    .menu-toggle {
+      display: none;
+      border: none;
+      background: var(--green);
+      color: #fff;
+      padding: 10px 14px;
+      border-radius: 10px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .nav-links a:hover {
+      color: var(--green);
+    }
+
+    .hero {
+      padding: 42px 0 24px;
+    }
+
+    .hero-card {
+      background: linear-gradient(140deg, #ffffff 0%, #f3f8f5 100%);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 16px;
+      align-items: center;
+      padding: 28px;
+    }
+
+    .hero-content h2 {
+      font-size: clamp(2rem, 4vw, 3.3rem);
+      line-height: 1.05;
+      color: var(--green);
+      margin-bottom: 14px;
+    }
+
+    .hero-content p {
+      color: var(--muted);
+      max-width: 560px;
+      margin-bottom: 18px;
+      font-size: 1rem;
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 22px;
+    }
+
+    .badge {
+      background: #eef7f1;
+      color: var(--green-dark);
+      border: 1px solid #d9ecdf;
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 18px;
+      border-radius: 12px;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .btn-primary {
+      background: var(--green);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: var(--green-dark);
+    }
+
+    .btn-secondary {
+      background: white;
+      color: var(--green);
+      border: 1px solid #cfe2d6;
+    }
+
+    .hero-image {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 18px;
+    }
+
+    .hero-image img {
+      width: 100%;
+      border-radius: 16px;
+      object-fit: contain;
+      background: #fff;
+    }
+
+    section {
+      padding: 28px 0;
+    }
+
+    .section-head {
+      margin-bottom: 20px;
+    }
+
+    .section-head h3 {
+      font-size: 1.7rem;
+      margin-bottom: 6px;
+    }
+
+    .section-head p {
+      color: var(--muted);
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .info-card,
+    .product-card,
+    .coming-soon {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .info-card {
+      padding: 18px;
+    }
+
+    .info-card h4 {
+      margin-bottom: 8px;
+      color: var(--green);
+    }
+
+    .catalog-group {
+      margin-top: 24px;
+    }
+
+    .group-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .group-title h4 {
+      font-size: 1.25rem;
+    }
+
+    .group-title span {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .product-card {
+      overflow: hidden;
+    }
+
+    .product-image {
+      aspect-ratio: 4 / 5;
+      background: #eaf3ee;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--green);
+      font-weight: 700;
+      font-size: 1rem;
+      text-align: center;
+      padding: 16px;
+    }
+
+    .product-body {
+      padding: 16px;
+    }
+
+    .product-body h5 {
+      font-size: 1.05rem;
+      margin-bottom: 6px;
+    }
+
+    .product-body p {
+      color: var(--muted);
+      font-size: 0.94rem;
+      margin-bottom: 12px;
+    }
+
+    .price {
+      font-weight: 800;
+      font-size: 1rem;
+      margin-bottom: 12px;
+      color: var(--text);
+    }
+
+    .product-actions {
+      display: flex;
+      gap: 10px;
+      flex-direction: column;
+    }
+
+    .notes-input {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 11px 12px;
+      outline: none;
+      font-size: 0.95rem;
+      background: #fff;
+    }
+
+    .notes-input:focus {
+      border-color: var(--green);
+    }
+
+    .wa-btn {
+      width: 100%;
+      background: #25d366;
+      color: white;
+    }
+
+    .wa-btn:hover {
+      background: #1faf56;
+    }
+
+    .coming-soon {
+      padding: 28px;
+      text-align: center;
+    }
+
+    .coming-soon h4 {
+      color: var(--green);
+      margin-bottom: 8px;
+    }
+
+    .coming-soon p {
+      color: var(--muted);
+    }
+
+    .footer {
+      padding: 36px 0 50px;
+      border-top: 1px solid var(--line);
+      margin-top: 28px;
+    }
+
+    .footer-wrap {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .footer small {
+      color: var(--muted);
+    }
+
+    .footer .footer-links {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .footer .footer-links a {
+      color: var(--green);
+      font-weight: 700;
+    }
+
+    @media (max-width: 900px) {
+      .hero-card,
+      .info-grid,
+      .product-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .nav {
+        flex-wrap: wrap;
+        padding: 10px 0;
+      }
+
+      .menu-toggle {
+        display: inline-flex;
+      }
+
+      .nav-links {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 0 14px;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .hero {
+        padding-top: 20px;
+      }
+
+      .hero-card {
+        padding: 18px;
+      }
+
+      .section-head h3 {
+        font-size: 1.45rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <div class="brand">
+        <img src="logo.jpeg" alt="SEVA logo" class="brand-logo">
+        <div class="brand-text">
+          <h1>SEVA</h1>
+          <span>Stitches of love</span>
+        </div>
+      </div>
+
+      <button class="menu-toggle" id="menuToggle">Menu</button>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#kids">Kids</a>
+        <a href="#women">Women</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="home">
+    <section class="hero">
+      <div class="container">
+        <div class="hero-card">
+          <div class="hero-content">
+            <h2>Stitched with care for women and kids</h2>
+            <p>
+              SEVA offers stitched ladies and kids wear with a soft, elegant feel.
+              Customers can browse the collection and order directly on WhatsApp,
+              including custom measurements and any special stitching requests.
+            </p>
+
+            <div class="hero-badges">
+              <span class="badge">Ladies & Kids Wear</span>
+              <span class="badge">Customized Stitching Available</span>
+              <span class="badge">Order on WhatsApp</span>
+            </div>
+
+            <div class="hero-actions">
+              <a href="#kids" class="btn btn-primary">Browse Collection</a>
+              <a href="#contact" class="btn btn-secondary">Contact Us</a>
+            </div>
+          </div>
+
+          <div class="hero-image">
+            <img src="logo.jpeg" alt="SEVA brand image">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-head">
+          <h3>About SEVA</h3>
+          <p>We create with care and love, so every stitch feels personal.</p>
+        </div>
+
+        <div class="info-grid">
+          <div class="info-card">
+            <h4>Stitched Pieces</h4>
+            <p>Ready stitched items for women and children, presented in a clear and simple catalog.</p>
+          </div>
+          <div class="info-card">
+            <h4>Custom Measurements</h4>
+            <p>No size selector is needed. Buyers can send measurements and requests directly on WhatsApp.</p>
+          </div>
+          <div class="info-card">
+            <h4>Easy Ordering</h4>
+            <p>Each item includes a direct WhatsApp order button so customers can order with minimal friction.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="kids">
+      <div class="container">
+        <div class="section-head">
+          <h3>Kids Section</h3>
+          <p>Summer collection available now. Winter collection will be added later.</p>
+        </div>
+
+        <div class="catalog-group">
+          <div class="group-title">
+            <h4>Summer Collection — Fancy</h4>
+            <span>Kids stitched wear</span>
+          </div>
+
+          <div class="product-grid">
+            <article class="product-card">
+              <div class="product-image">Fancy Kids Dress 01</div>
+              <div class="product-body">
+                <h5>Fancy Floral Dress</h5>
+                <p>Elegant stitched kids outfit for festive and special occasions.</p>
+                <div class="price">AED 95</div>
+                <div class="product-actions">
+                  <input class="notes-input" id="notes-kf1" type="text" placeholder="Optional note: age, color, measurements">
+                  <button class="btn wa-btn" onclick="orderOnWhatsApp('Kids Fancy Floral Dress', 'AED 95', 'notes-kf1')">Order on WhatsApp</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="product-card">
+              <div class="product-image">Fancy Kids Dress 02</div>
+              <div class="product-body">
+                <h5>Pearl Detail Party Frock</h5>
+                <p>Soft premium stitched piece for birthdays, dinners, and events.</p>
+                <div class="price">AED 110</div>
+                <div class="product-actions">
+                  <input class="notes-input" id="notes-kf2" type="text" placeholder="Optional note: age, color, measurements">
+                  <button class="btn wa-btn" onclick="orderOnWhatsApp('Kids Pearl Detail Party Frock', 'AED 110', 'notes-kf2')">Order on WhatsApp</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="product-card">
+              <div class="product-image">Fancy Kids Dress 03</div>
+              <div class="product-body">
+                <h5>Embroidered Occasion Dress</h5>
+                <p>Neat stitched design with a graceful finish for formal wear.</p>
+                <div class="price">AED 120</div>
+                <div class="product-actions">
+                  <input class="notes-input" id="notes-kf3" type="text" placeholder="Optional note: age, color, measurements">
+                  <button class="btn wa-btn" onclick="orderOnWhatsApp('Kids Embroidered Occasion Dress', 'AED 120', 'notes-kf3')">Order on WhatsApp</button>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="catalog-group">
+          <div class="group-title">
+            <h4>Summer Collection — Casual</h4>
+            <span>Kids stitched daily wear</span>
+          </div>
+
+          <div class="product-grid">
+            <article class="product-card">
+              <div class="product-image">Casual Kids Set 01</div>
+              <div class="product-body">
+                <h5>Printed Casual Set</h5>
+                <p>Comfort-focused stitched set for daily summer wear.</p>
+                <div class="price">AED 65</div>
+                <div class="product-actions">
+                  <input class="notes-input" id="notes-kc1" type="text" placeholder="Optional note: age, color, measurements">
+                  <button class="btn wa-btn" onclick="orderOnWhatsApp('Kids Printed Casual Set', 'AED 65', 'notes-kc1')">Order on WhatsApp</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="product-card">
+              <div class="product-image">Casual Kids Set 02</div>
+              <div class="product-body">
+                <h5>Light Cotton Everyday Dress</h5>
+                <p>Simple stitched piece for comfort, movement, and regular use.</p>
+                <div class="price">AED 58</div>
+                <div class="product-actions">
+                  <input class="notes-input" id="notes-kc2" type="text" placeholder="Optional note: age, color, measurements">
+                  <button class="btn wa-btn" onclick="orderOnWhatsApp('Kids Light Cotton Everyday Dress', 'AED 58', 'notes-kc2')">Order on WhatsApp</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="product-card">
+              <div class="product-image">Casual Kids Set 03</div>
+              <div class="product-body">
+                <h5>Playtime Summer Outfit</h5>
+                <p>Breathable stitched wear for casual daytime use.</p>
+                <div class="price">AED 60</div>
+                <div class="product-actions">
+                  <input class="notes-input" id="notes-kc3" type="text" placeholder="Optional note: age, color, measurements">
+                  <button class="btn wa-btn" onclick="orderOnWhatsApp('Kids Playtime Summer Outfit', 'AED 60', 'notes-kc3')">Order on WhatsApp</button>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="catalog-group">
+          <div class="group-title">
+            <h4>Winter Collection</h4>
+            <span>For later release</span>
+          </div>
+
+          <div class="coming-soon">
+            <h4>Coming Soon</h4>
+            <p>
+              The kids winter collection will be added here soon.
+              New stitched designs will be listed once ready.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="women">
+      <div class="container">
+        <div class="section-head">
+          <h3>Women Section</h3>
+          <p>A small stitched collection for women. You can expand this later as the catalog grows.</p>
+        </div>
+
+        <div class="product-grid">
+          <article class="product-card">
+            <div class="product-image">Women Outfit 01</div>
+            <div class="product-body">
+              <h5>Elegant Stitched Kurti</h5>
+              <p>Refined stitched piece for a clean and graceful everyday look.</p>
+              <div class="price">AED 125</div>
+              <div class="product-actions">
+                <input class="notes-input" id="notes-w1" type="text" placeholder="Optional note: color, measurements, sleeves">
+                <button class="btn wa-btn" onclick="orderOnWhatsApp('Women Elegant Stitched Kurti', 'AED 125', 'notes-w1')">Order on WhatsApp</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image">Women Outfit 02</div>
+            <div class="product-body">
+              <h5>Soft Casual Stitched Set</h5>
+              <p>Simple women’s stitched wear suitable for comfortable regular use.</p>
+              <div class="price">AED 140</div>
+              <div class="product-actions">
+                <input class="notes-input" id="notes-w2" type="text" placeholder="Optional note: color, measurements, sleeves">
+                <button class="btn wa-btn" onclick="orderOnWhatsApp('Women Soft Casual Stitched Set', 'AED 140', 'notes-w2')">Order on WhatsApp</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image">Women Outfit 03</div>
+            <div class="product-body">
+              <h5>Festive Stitched Dress</h5>
+              <p>A polished stitched option for gatherings and special occasions.</p>
+              <div class="price">AED 165</div>
+              <div class="product-actions">
+                <input class="notes-input" id="notes-w3" type="text" placeholder="Optional note: color, measurements, sleeves">
+                <button class="btn wa-btn" onclick="orderOnWhatsApp('Women Festive Stitched Dress', 'AED 165', 'notes-w3')">Order on WhatsApp</button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="section-head">
+          <h3>Contact & Orders</h3>
+          <p>Customers can order directly through WhatsApp and share custom measurements there.</p>
+        </div>
+
+        <div class="info-grid">
+          <div class="info-card">
+            <h4>How ordering works</h4>
+            <p>Tap any “Order on WhatsApp” button. A message opens with the selected item already filled in.</p>
+          </div>
+          <div class="info-card">
+            <h4>Custom stitching details</h4>
+            <p>Customers can mention age, measurements, preferred color, sleeve style, and other notes in WhatsApp.</p>
+          </div>
+          <div class="info-card">
+            <h4>Business contact</h4>
+            <p>Add your official WhatsApp number and optionally your Instagram page or delivery details here.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-wrap">
+      <div>
+        <strong>SEVA</strong><br>
+        <small>Stitches of love — ladies & kids wear</small>
+      </div>
+
+      <div class="footer-links">
+        <a href="#kids">Kids</a>
+        <a href="#women">Women</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const businessNumber = "971501234567";
+
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    menuToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("open");
+    });
+
+    document.querySelectorAll(".nav-links a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+      });
+    });
+
+    function orderOnWhatsApp(productName, price, notesId) {
+      const notesField = document.getElementById(notesId);
+      const notes = notesField ? notesField.value.trim() : "";
+
+      let message =
+        "Hello, I want to order this item from SEVA:%0A%0A" +
+        "Product: " + productName + "%0A" +
+        "Price: " + price + "%0A";
+
+      if (notes) {
+        message += "Customer notes: " + notes + "%0A";
+      }
+
+      message +=
+        "%0APlease let me know the availability.%0A" +
+        "I will share custom measurements here if needed.";
+
+      const url = "https://wa.me/" + businessNumber + "?text=" + message;
+      window.open(url, "_blank");
+    }
+  </script>
+</body>
+</html>
